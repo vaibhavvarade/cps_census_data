@@ -1,10 +1,7 @@
 from dash import Dash, html, dcc
-from jupyter_dash import JupyterDash  # pip install dash
 import plotly.express as px
 from dash.dependencies import Input, Output
 import pandas as pd
-import plotly.express as px
-import numpy as np
 
 #load CPS data from local csv
 def getCpsData():
@@ -21,7 +18,7 @@ def filterUSAMexico(local_df, filter_countries):
     return local_df;
     
 dash_app = Dash(__name__)
-#app = dash_app.server
+app = dash_app.server
 
 #load CPS data
 df = getCpsData()
@@ -132,4 +129,4 @@ def bar_update(city, country, filter_country):
     return fig 
 
 if __name__ =='__main__':
-    dash_app.run_server(debug=True)
+    dash_app.run_server(debug=True,host='0.0.0.0', port='80')
