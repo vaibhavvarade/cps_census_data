@@ -8,7 +8,7 @@ import numpy as np
 
 #load CPS data from local csv
 def getCpsData():
-    df = pd.read_csv ('https://raw.githubusercontent.com/vaibhavvarade/cps_census_data/main/Econ8320_Project_Vaibhav_Varade.csv')
+    df = pd.read_csv ('Econ8320_Project_Vaibhav_Varade.csv')
     return df
 
 #filtes data from USA and Mexico
@@ -21,7 +21,7 @@ def filterUSAMexico(local_df, filter_countries):
     return local_df;
     
 dash_app = Dash(__name__)
-app = dash_app.server
+#app = dash_app.server
 
 #load CPS data
 df = getCpsData()
