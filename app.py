@@ -1,15 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-
-"""
-Created on Sat Mar 26 07:00:47 2022
-
-@author: vvarade
-
-
-"""                                  
-
 from dash import Dash, html, dcc
 from jupyter_dash import JupyterDash  # pip install dash
 import plotly.express as px
@@ -33,6 +21,7 @@ def filterUSAMexico(local_df, filter_countries):
     return local_df;
     
 dash_app = Dash(__name__)
+app = dash_app.server
 
 #load CPS data
 df = getCpsData()
@@ -143,4 +132,4 @@ def bar_update(city, country, filter_country):
     return fig 
 
 if __name__ =='__main__':
-    dash_app.run_server(mode="external")
+    dash_app.run_server(debug=True)
